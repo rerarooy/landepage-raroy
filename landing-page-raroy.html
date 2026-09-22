@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MYSTIBOX | Collect Your Story</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FFFEF1;
+            color: #87452D;
+        }
+
+        /* NAVBAR */
+        header {
+            background-color: #FFFEF1;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #92D3BF;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #E76D8C;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #87452D;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #E76D8C;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 80vh;
+            background-color: #92D3BF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text small {
+            color: #E76D8C;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #E76D8C;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #87452D;
+            color: #FFFEF1;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #E76D8C;
+        }
+
+        .hero-image {
+            width: 370px;
+            height: 370px;
+            background-color: #FFFEF1;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 15px 15px 0 #87452D;
+        }
+
+        .hero-image img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-label {
+            display: block;
+            text-align: center;
+            color: #E76D8C;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin: 12px 0;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            line-height: 1.7;
+        }
+
+        /* CATALOG */
+        #catalog {
+            background-color: #FFFEF1;
+        }
+
+        .catalog-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 2px solid #92D3BF;
+            border-radius: 22px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: #E76D8C;
+        }
+
+        .product-image {
+            height: 320px;
+            background-color: #92D3BF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            line-height: 1.6;
+            color: #765f55;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #E76D8C;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background-color: #87452D;
+            color: #FFFEF1;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .buy-button:hover {
+            background-color: #E76D8C;
+        }
+
+        /* ABOUT */
+        #about {
+            background-color: #87452D;
+            color: #FFFEF1;
+            text-align: center;
+        }
+
+        #about .section-label {
+            color: #92D3BF;
+        }
+
+        #about .section-title {
+            color: #FFFEF1;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        /* REGISTER */
+        #register {
+            background-color: #E76D8C;
+        }
+
+        #register .section-label,
+        #register .section-title,
+        #register .section-description {
+            color: #FFFEF1;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #FFFEF1;
+            padding: 35px;
+            border-radius: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #92D3BF;
+            border-radius: 10px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background-color: #87452D;
+            color: #FFFEF1;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* CONTACT */
+        #contact {
+            background-color: #FFFEF1;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            width: 260px;
+            padding: 28px;
+            background-color: #92D3BF;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #87452D;
+            color: #FFFEF1;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-image {
+                width: 280px;
+                height: 280px;
+            }
+
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+
+    <div class="logo">
+        MYSTI<span>BOX</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">About</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <small>WELCOME TO MYSTIBOX</small>
+
+            <h1>
+                COLLECT YOUR
+                <span>STORY.</span>
+            </h1>
+
+            <p>
+                Discover adorable collectible characters
+                and find your next favorite companion.
+            </p>
+
+            <a href="#catalog" class="button">
+                SHOP NOW
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="hacipupu.png"
+                alt="HACIPUPU Leo"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- CATALOG -->
+    <section id="catalog">
+
+        <span class="section-label">
+            OUR CATALOG
+        </span>
+
+        <h2 class="section-title">
+            BEST SELLERS
+        </h2>
+
+        <p class="section-description">
+            Cute, unique, and collectible characters.
+            Find your favorite!
+        </p>
+
+
+        <div class="catalog-grid">
+
+
+            <!-- PRODUCT 1 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="hirono.png"
+                        alt="Hirono Little Bear"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Hirono Little Bear
+                    </h3>
+
+                    <p>
+                        A cute bear-themed collectible
+                        plush keychain for your collection.
+                    </p>
+
+                    <div class="price">
+                        Rp119.000
+                    </div>
+
+                    <a href="#contact" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="hacipupu.png"
+                        alt="HACIPUPU Leo"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        HACIPUPU Leo
+                    </h3>
+
+                    <p>
+                        A fluffy and adorable Leo-themed
+                        collectible plush keychain.
+                    </p>
+
+                    <div class="price">
+                        Rp129.000
+                    </div>
+
+                    <a href="#contact" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="skul pnda.png"
+                        alt="SKULLPANDA My Melody"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        SKULLPANDA × MY MELODY
+                    </h3>
+
+                    <p>
+                        A special pink collectible plush
+                        with an adorable and stylish look.
+                    </p>
+
+                    <div class="price">
+                        Rp149.000
+                    </div>
+
+                    <a href="#contact" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <span class="section-label">
+            OUR STORY
+        </span>
+
+        <h2 class="section-title">
+            ABOUT MYSTIBOX
+        </h2>
+
+        <div class="about-text">
+
+            <p>
+                MYSTIBOX is a collectible store created
+                for people who love cute characters,
+                unique designs, and special surprises.
+                Our catalog brings together adorable
+                collectibles that can become part of
+                your everyday story.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGISTER -->
+    <section id="register">
+
+        <span class="section-label">
+            JOIN THE COMMUNITY
+        </span>
+
+        <h2 class="section-title">
+            CREATE YOUR ACCOUNT
+        </h2>
+
+        <p class="section-description">
+            Register to receive updates about our newest
+            products and special collections.
+        </p>
+
+
+        <div class="form-container">
+
+            <form>
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="Your age"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select id="gender" required>
+
+                            <option value="">
+                                Select gender
+                            </option>
+
+                            <option>
+                                Female
+                            </option>
+
+                            <option>
+                                Male
+                            </option>
+
+                            <option>
+                                Prefer not to say
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="country">
+                        Country / Region
+                    </label>
+
+                    <select id="country" required>
+
+                        <option value="">
+                            Select your country
+                        </option>
+
+                        <option>
+                            Indonesia
+                        </option>
+
+                        <option>
+                            Singapore
+                        </option>
+
+                        <option>
+                            Malaysia
+                        </option>
+
+                        <option>
+                            Thailand
+                        </option>
+
+                        <option>
+                            Japan
+                        </option>
+
+                        <option>
+                            South Korea
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    CREATE ACCOUNT
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <span class="section-label">
+            GET IN TOUCH
+        </span>
+
+        <h2 class="section-title">
+            CONTACT US
+        </h2>
+
+        <p class="section-description">
+            Have a question about our products?
+            Contact us anytime!
+        </p>
+
+
+        <div class="contact-container">
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    hello@mystibox.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    @mystibox.official
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Location
+                </h3>
+
+                <p>
+                    Jakarta, Indonesia
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 MYSTIBOX — Collect Your Story.
+    </p>
+
+</footer>
+
+</body>
+</html>

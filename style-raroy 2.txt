@@ -1,0 +1,135 @@
+body {
+    font-family: 'Times New Roman', Times, serif, Georgia;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #15ddc2;
+    color: sienna;
+}
+
+header {
+    background-color: lightpink;
+    color: sienna;
+    padding: 2rem;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: sienna;
+    padding: 0.4rem 1.5rem;
+}
+
+.logo {
+    color: lightpink;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: lightpink;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 1rem auto;
+    background-color: #15ddc2;
+    border-radius: 5px;
+}
+
+h2 {
+    border-bottom: 2px solid lightpink;
+    padding-bottom: 0.5rem;
+}
+
+.project {
+    background-color: sienna;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 4px solid lightpink;
+}
+
+.project h3 {
+    color: lightpink;
+}
+
+.sosmed-link {
+    color: sienna;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sosmed-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: sienna;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Tombol */
+button {
+    background-color: sienna;
+    color: lightpink;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7a3925;
+}
+
+/* Form */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid lightpink;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: sienna;
+}
